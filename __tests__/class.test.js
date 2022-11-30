@@ -2,7 +2,6 @@ const Employee = require("../lib/EmployeeClass")
 const Manager = require("../lib/ManagerClass")
 const Engineer = require("../lib/EngineerClass")
 const Intern = require("../lib/InternClass")
-const fs = require("fs")
 
 describe("Employee", () => {
   describe("Initialization", () => {
@@ -21,7 +20,7 @@ describe("Manager", () => {
     it("should create an object with an office number", () => {
       const manager = new Manager(1, "Monique", "manager@corp.com", "R077");
 
-      expect(manager.store).toEqual("R077")
+      expect(manager.office).toEqual("R077")
     })
 
     it("should inherit the employee class, giving it an ID. name, and email", () => {
