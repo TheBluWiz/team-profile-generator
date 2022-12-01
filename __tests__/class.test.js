@@ -24,11 +24,22 @@ describe("Manager", () => {
     })
 
     it("should inherit the employee class, giving it an ID. name, and email", () => {
-      const manager = new Manager(1, "Monique", "manager@corp.com", "R077");
+      const manager = new Manager(1, "Monique", "monique@corp.com", "R077");
 
       expect(manager.id).toEqual(1)
       expect(manager.name).toEqual("Monique")
-      expect(manager.email).toEqual("manager@corp.com")
+      expect(manager.email).toEqual("monique@corp.com")
+    })
+  })
+
+  describe("createCard", () => {
+    it("should generate an HTML string that would build a card for the employee and append that string to a cards variable", () => {
+      let cards = ""
+      let goodHTML = '<div class="card"><div class="title"><h2>Monique</h2><h3>Manager</h3></div><div class="info"><div><p>ID: 1</p></div><div><p>Email: <a href="mailto:monique@corp.com">monique@corp.com</a></p></div><div><p>Office Number: R077</p></div></div></div>'
+
+      const manager = new Manager(1, "Monique", "monique@corp.com", "R077");
+      
+      expect(manager.createHTMLString(cards)).toEqual(goodHTML)
     })
   })
 })
