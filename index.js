@@ -28,14 +28,14 @@ initialQuestions = [
     name: 'office',
   },
   {
-    type: 'input',
+    type: 'list',
     message: "Do you have additional team members to add to this profile?",
     choices: [
       "Engineer",
       "Intern",
       "All team members have been added"
     ],
-    name: 'office',
+    name: 'team',
   },
 ]
 

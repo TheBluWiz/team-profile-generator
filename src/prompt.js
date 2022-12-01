@@ -21,7 +21,7 @@ function newMember(answers) {
 function createEngineer() {
   inquirer.prompt(engineerQuestions).then(function (answers) {
     const engineer = new Engineer(answers.id, answers.name, answers.email, answers.github);
-    let card = engineer.createHTMLString
+    let card = engineer.createHTMLString()
     fs.appendFile('./tmp/cards', card, (err) =>
       err ? console.log(err) : console.log('Card Generated!')
     );
@@ -32,7 +32,7 @@ function createEngineer() {
 function createIntern() {
   inquirer.prompt(internQuestions).then(function (answers) {
     const intern = new Intern(answers.id, answers.name, answers.email, answers.school);
-    let card = intern.createHTMLString
+    let card = intern.createHTMLString()
     fs.appendFile('./tmp/cards', card, (err) =>
       err ? console.log(err) : console.log('Card Generated!')
     );
@@ -44,7 +44,7 @@ function createIntern() {
 prompt = (initialQuestions) => {
   inquirer.prompt(initialQuestions).then(function (answers) {
     const manager = new Manager(answers.id, answers.name, answers.email, answers.office);
-    let card = manager.createHTMLString
+    let card = manager.createHTMLString()
     fs.writeFile('./tmp/cards', card, (err) =>
       err ? console.log(err) : console.log('Card Generated!')
     );
