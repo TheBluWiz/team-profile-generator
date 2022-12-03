@@ -115,7 +115,7 @@ generateHTML = function () {
   HTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./reset.css"><link rel="stylesheet" href="./styles.css"><title>My Team</title></head><body><header><h1>My Team</h1></header><main><div id="cards">${cardHTML}</div></main></body></html>`
   console.log(HTML)
 
-  fs.writeFile("./dist/generated.html", HTML, [string], (err) => err ? console.error(err) : console.log("HTML Generated!"))
+  fs.writeFile("./dist/generated.html", HTML, (err) => err ? console.error(err) : console.log("HTML Generated!"))
 }
 
 newEmployee = function (answers) {
