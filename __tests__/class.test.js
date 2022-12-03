@@ -11,6 +11,11 @@ describe("Employee", () => {
       expect(employee.id).toEqual(1);
       expect(employee.name).toEqual("Steve")
       expect(employee.email).toEqual("employee@corp.com")
+
+      expect(employee.getName()).toEqual("Steve")
+      expect(employee.getId()).toEqual(1)
+      expect(employee.getEmail()).toEqual("employee@corp.com")
+      expect(employee.getRole()).toEqual("Employee")
     })
   })
 })
@@ -20,7 +25,7 @@ describe("Manager", () => {
     it("should create an object with an office number", () => {
       const manager = new Manager(1, "Monique", "manager@corp.com", "R077");
 
-      expect(manager.office).toEqual("R077")
+      expect(manager.officeNumber).toEqual("R077")
     })
 
     it("should inherit the employee class, giving it an ID. name, and email", () => {
@@ -29,6 +34,9 @@ describe("Manager", () => {
       expect(manager.id).toEqual(1)
       expect(manager.name).toEqual("Monique")
       expect(manager.email).toEqual("monique@corp.com")
+
+      expect(manager.getOfficeNumber()).toEqual('R077')
+      expect(manager.getRole()).toEqual('Manager')
     })
   })
 
@@ -57,6 +65,9 @@ describe("Engineer", () => {
       expect(engineer.id).toEqual(1)
       expect(engineer.name).toEqual("Trenton")
       expect(engineer.email).toEqual("engineer@corp.com")
+
+      expect(engineer.getGithub()).toEqual("DevOpsPro")
+      expect(engineer.getRole()).toEqual("Engineer")
     })
   })
 
@@ -77,6 +88,7 @@ describe("Intern", () => {
       const intern = new Intern(1, "Eric", "intern@corp.com", "UW");
 
       expect(intern.school).toEqual("UW")
+      expect(intern.getSchool()).toEqual("UW")
     })
 
     it("should inherit the employee class, giving it an ID, name, and email", () => {

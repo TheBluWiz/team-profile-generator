@@ -4,7 +4,12 @@ const Employee = require("./lib/EmployeeClass.js")
 const Manager = require("./lib/ManagerClass.js")
 const Engineer = require("./lib/EngineerClass.js")
 const Intern = require("./lib/InternClass.js")
-const prompt = require("./src/prompt")
+const newEmployee = require("./src/newEmployee")
+const generateHTML = require("./src/generateHTML")
+
+let employees = [];
+let cardHTML = "";
+let HTML = "";
 
 initialQuestions = [
   {
@@ -42,7 +47,7 @@ initialQuestions = [
 engineerQuestions = [
   {
     type: 'input',
-    message: "Team Manager Name:  ",
+    message: "Engineer Name:  ",
     name: 'name',
   },
   {
@@ -61,7 +66,7 @@ engineerQuestions = [
     name: 'github',
   },
   {
-    type: 'input',
+    type: 'list',
     message: "Do you have additional team members to add to this profile?",
     choices: [
       "Engineer",
@@ -75,7 +80,7 @@ engineerQuestions = [
 internQuestions = [
   {
     type: 'input',
-    message: "Team Manager Name:  ",
+    message: "Intern Name:  ",
     name: 'name',
   },
   {
@@ -94,7 +99,7 @@ internQuestions = [
     name: 'school',
   },
   {
-    type: 'input',
+    type: 'list',
     message: "Do you have additional team members to add to this profile?",
     choices: [
       "Engineer",
@@ -105,4 +110,9 @@ internQuestions = [
   },
 ]
 
-prompt(initialQuestions);
+inquirer.prompt(initialQuestions).then(function (answers) {
+  const manager = new Manager(answers.id, answers.name, answers.email, answers.office);
+  employees.push(manager);
+  newEmployee(answers)
+
+})
