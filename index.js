@@ -1,11 +1,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer")
-const Employee = require("./lib/EmployeeClass.js")
 const Manager = require("./lib/ManagerClass.js")
 const Engineer = require("./lib/EngineerClass.js")
 const Intern = require("./lib/InternClass.js")
-const newEmployee = require("./src/newEmployee")
-const generateHTML = require("./src/generateHTML")
 
 let employees = [];
 let cardHTML = "";
@@ -109,6 +106,40 @@ internQuestions = [
     name: 'team',
   },
 ]
+
+generateHTML = function () {
+  employees.forEach(element => {
+    cardHTML = cardHTML + element.createHTMLString()
+  });
+  console.log("Generating HTML..")
+  HTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./reset.css"><link rel="stylesheet" href="./styles.css"><title>My Team</title></head><body><header><h1>My Team</h1></header><main><div id="cards">${cardHTML}</div></main></body></html>`
+  console.log(HTML)
+
+  fs.writeFile("./dist/generated.html", HTML, [string], (err) => err ? console.error(err) : console.log("HTML Generated!"))
+}
+
+newEmployee = function (answers) {
+  switch (answers.team) {
+    case 'Engineer':
+      inquirer.prompt(engineerQuestions).then(function (answers) {
+        const engineer = new Engineer(answers.id, answers.name, answers.email, answers.github)
+        employees.push(engineer);
+        newEmployee(answers);
+      })
+    break;
+    case 'Intern':
+      inquirer.prompt(internQuestions).then(function (answers) {
+        const intern = new Intern(answers.id, answers.name, answers.email, answers.school)
+        employees.push(intern);
+        newEmployee(answers);
+      })
+      break;
+      case "All team members have been added":
+        console.log("Employees Added!")
+        generateHTML()
+        break;
+  }
+}
 
 inquirer.prompt(initialQuestions).then(function (answers) {
   const manager = new Manager(answers.id, answers.name, answers.email, answers.office);
