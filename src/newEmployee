@@ -2,7 +2,7 @@ const inquirer = require("inquirer")
 const Engineer = require('../lib/EngineerClass')
 const Intern = require('../lib/InternClass')
 
-newEmployee = (answers) => {
+newEmployee = function (answers) {
   switch (answers.team) {
     case 'Engineer':
       inquirer.prompt(engineerQuestions).then(function (answers) {
