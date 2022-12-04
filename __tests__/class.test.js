@@ -8,7 +8,7 @@ describe("Employee", () => {
     it("should create an object with an ID, name, and an email when called with the new keyword", () => {
       const employee = new Employee(1, "Steve", "employee@corp.com");
       
-      expect(employee.id).toEqual(1);
+      expect(employee.ID).toEqual(1);
       expect(employee.name).toEqual("Steve")
       expect(employee.email).toEqual("employee@corp.com")
 
@@ -31,7 +31,7 @@ describe("Manager", () => {
     it("should inherit the employee class, giving it an ID. name, and email", () => {
       const manager = new Manager(1, "Monique", "monique@corp.com", "R077");
 
-      expect(manager.id).toEqual(1)
+      expect(manager.ID).toEqual(1)
       expect(manager.name).toEqual("Monique")
       expect(manager.email).toEqual("monique@corp.com")
 
@@ -62,7 +62,7 @@ describe("Engineer", () => {
     it("should inherit the employee class, giving it an ID, name, and email", () => {
       const engineer = new Engineer(1, "Trenton", "engineer@corp.com", "DevOpsPro");
 
-      expect(engineer.id).toEqual(1)
+      expect(engineer.ID).toEqual(1)
       expect(engineer.name).toEqual("Trenton")
       expect(engineer.email).toEqual("engineer@corp.com")
 
@@ -94,7 +94,7 @@ describe("Intern", () => {
     it("should inherit the employee class, giving it an ID, name, and email", () => {
       const intern = new Intern(1, "Eric", "intern@corp.com", "UW");
 
-      expect(intern.id).toEqual(1)
+      expect(intern.ID).toEqual(1)
       expect(intern.name).toEqual("Eric")
       expect(intern.email).toEqual("intern@corp.com")
     })
