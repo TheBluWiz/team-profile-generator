@@ -73,7 +73,7 @@ describe("Engineer", () => {
 
   describe("createHTMLString", () => {
     it("should generate an HTML string that would build a card for the engineer", () => {
-      let goodHTML = '<div class="card"><div class="title"><h2>Trenton</h2><h3>Engineer</h3></div><div class="info"><div><p>ID: 1</p></div><div><p>Email: <a href="mailto:trenton@corp.com">trenton@corp.com</a></p></div><div><p>GitHub: DevOpsPro</p></div></div></div>'
+      let goodHTML = '<div class="card"><div class="title"><h2>Trenton</h2><h3>Engineer</h3></div><div class="info"><div><p>ID: 1</p></div><div><p>Email: <a href="mailto:trenton@corp.com">trenton@corp.com</a></p></div><div><p>GitHub: <a href="https://github.com/DevOpsPro">DevOpsPro</a></p></div></div></div>'
 
       const engineer = new Engineer(1, "Trenton", "trenton@corp.com", "DevOpsPro");
 
