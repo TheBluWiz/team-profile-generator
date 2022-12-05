@@ -14,6 +14,11 @@
   ## Usage
   Prompts are displayed in the command line. After the user has responded to them, the application generates a HTML document containing cards representing each member of a software development team. The HTML generated HTML file is can then be served/accessed from the /dist folder of the application.
   ## Example
+  Here is an example of the application running:
+  
+
+https://user-images.githubusercontent.com/88697112/205541015-f30e96bb-52f9-40b9-889c-0e5168384870.mp4
+
 
   ## Contributing
   I'm always open to bug fixes or feature suggestions. Feel free to fork a branch of this code and then submit a pull request back to reintegrate your suggestions. I'm also open to collaboration, so feel free to reach me at the address listed in the questions section below.
