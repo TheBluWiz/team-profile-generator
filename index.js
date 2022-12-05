@@ -1,8 +1,8 @@
 const fs = require("fs");
-const inquirer = require("inquirer")
-const Manager = require("./lib/ManagerClass.js")
-const Engineer = require("./lib/EngineerClass.js")
-const Intern = require("./lib/InternClass.js")
+const inquirer = require("inquirer");
+const Manager = require("./lib/ManagerClass.js");
+const Engineer = require("./lib/EngineerClass.js");
+const Intern = require("./lib/InternClass.js");
 
 let employees = [];
 let cardHTML = "";
@@ -108,8 +108,8 @@ internQuestions = [
 ]
 
 generateHTML = function () {
-  employees.forEach(element => {
-    cardHTML = cardHTML + element.createHTMLString()
+  employees.forEach(employee => {
+    cardHTML = cardHTML + employee.createHTMLString()
   });
   console.log("Generating HTML..")
   HTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./reset.css"><link rel="stylesheet" href="./styles.css"><title>My Team</title></head><body><header><h1>My Team</h1></header><main><div id="cards">${cardHTML}</div></main></body></html>`
@@ -144,5 +144,4 @@ inquirer.prompt(initialQuestions).then(function (answers) {
   const manager = new Manager(answers.ID, answers.name, answers.email, answers.office);
   employees.push(manager);
   newEmployee(answers)
-
 })
