@@ -123,14 +123,14 @@ newEmployee = function (answers) {
       inquirer.prompt(engineerQuestions).then(function (answers) {
         const engineer = new Engineer(answers.ID, answers.name, answers.email, answers.github)
         employees.push(engineer);
-        newEmployee(answers);
+        return newEmployee(answers);
       })
       break;
     case 'Intern':
       inquirer.prompt(internQuestions).then(function (answers) {
         const intern = new Intern(answers.ID, answers.name, answers.email, answers.school)
         employees.push(intern);
-        newEmployee(answers);
+        return newEmployee(answers);
       })
       break;
     case "All team members have been added":
